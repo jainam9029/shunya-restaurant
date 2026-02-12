@@ -1,0 +1,3057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shunya - The Veg Delight | Pure Vegetarian Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Karla:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3E5902;
+            --primary-light: #5A7F0C;
+            --secondary: #8B6F47;
+            --accent: #D4A574;
+            --accent-dark: #B8956A;
+            --light: #F5F1E8;
+            --dark: #2C2416;
+            --cream: #FAF7F0;
+            --earth-brown: #6B4423;
+            --forest-green: #2D4A1F;
+            --sage: #A8B89F;
+            --terracotta: #C07855;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Karla', sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Modern Gradient & Food Overlay */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(62, 89, 2, 0.92) 0%,
+                    rgba(45, 74, 31, 0.88) 50%,
+                    rgba(107, 68, 35, 0.90) 100%
+                ),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="food-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="150" cy="100" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="100" cy="150" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="800" fill="url(%23food-pattern)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(168, 184, 159, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(139, 111, 71, 0.1) 0%, transparent 70%);
+            animation: floatGradient 25s ease-in-out infinite;
+        }
+
+        @keyframes floatGradient {
+            0%, 100% { 
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: translateY(-40px) scale(1.08);
+                opacity: 0.9;
+            }
+        }
+
+        /* Organic shapes overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(ellipse at 10% 20%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 80%, rgba(90, 127, 12, 0.08) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.9; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            text-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.4),
+                0 8px 40px rgba(212, 165, 116, 0.3);
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F1E8 50%, #D4A574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1.2s ease-out 0.2s backwards;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.2s ease-out 0.4s backwards;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.2s ease-out 0.6s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 10px 30px rgba(212, 165, 116, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.2s ease-out 0.8s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 15px 40px rgba(212, 165, 116, 0.6),
+                0 6px 16px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--accent-dark) 0%, var(--secondary) 100%);
+        }
+
+        /* Decorative Elements */
+        .leaf-decoration {
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.08;
+            user-select: none;
+            pointer-events: none;
+            filter: drop-shadow(0 0 20px rgba(168, 184, 159, 0.3));
+        }
+
+        .leaf-1 {
+            top: 10%;
+            left: 5%;
+            animation: rotate 30s linear infinite;
+        }
+
+        .leaf-2 {
+            bottom: 10%;
+            right: 5%;
+            animation: rotate 25s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* About Section */
+        .section {
+            padding: 8rem 5%;
+            position: relative;
+        }
+
+        .about {
+            background: linear-gradient(180deg, var(--light) 0%, var(--cream) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 100%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-top: 2rem;
+            font-weight: 300;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--dark);
+        }
+
+        /* Menu Styles */
+        .menu-preview {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .menu-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(180deg, var(--cream) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .menu-category {
+            max-width: 1400px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 3rem;
+            gap: 1.5rem;
+        }
+
+        .category-icon {
+            font-size: 4rem;
+            filter: drop-shadow(0 2px 8px rgba(62, 89, 2, 0.2));
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--earth-brown) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .dish-item {
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--light) 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 
+                0 5px 20px rgba(62, 89, 2, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+            border-left: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dish-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .dish-item:hover::before {
+            opacity: 1;
+        }
+
+        .dish-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 15px 40px rgba(62, 89, 2, 0.15),
+                0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--accent);
+        }
+
+        .dish-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .dish-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .dish-price-table {
+            margin-top: 1rem;
+            border-top: 1px solid rgba(62, 89, 2, 0.1);
+            padding-top: 1rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .price-category {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .price-value {
+            font-weight: 600;
+            color: var(--accent-dark);
+            font-size: 1.1rem;
+        }
+
+        .special-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--terracotta) 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            box-shadow: 0 2px 8px rgba(212, 165, 116, 0.3);
+        }
+
+        /* Specialties */
+        .specialties {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--forest-green) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specialties::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(168, 184, 159, 0.08) 0%, transparent 50%);
+        }
+
+        .specialties .section-title {
+            color: white;
+        }
+
+        .specialties .section-title::after {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .specialty-item {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .specialty-item:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.12) 100%);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .specialty-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 1rem 0;
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(180deg, var(--light) 0%, #FFFFFF 100%);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 2rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--light) 100%);
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(62, 89, 2, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(62, 89, 2, 0.15);
+        }
+
+        .contact-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .contact-item a {
+            color: var(--accent-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #1A1108 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 4rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+                letter-spacing: 0.2em;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 5rem 5%;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .category-title {
+                font-size: 2rem;
+            }
+
+            .category-icon {
+                font-size: 2.5rem;
+            }
+
+            .dishes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .menu-category {
+                margin-bottom: 4rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="leaf-decoration leaf-1">🌿</div>
+        <div class="leaf-decoration leaf-2">🍃</div>
+        <div class="hero-content">
+            <h1 class="logo">Shunya</h1>
+            <p class="tagline">The Veg Delight</p>
+            <p class="hero-description">
+                Experience the art of pure vegetarian cuisine, where every dish is crafted with passion, 
+                tradition, and the finest ingredients to delight your senses.
+            </p>
+            <a href="#menu" class="cta-button">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">Where Tradition Meets Innovation</p>
+        </div>
+        <div class="about-content fade-in">
+            <p>
+                At Shunya, we believe vegetarian food is not just a choice—it's a celebration. 
+                Our kitchen is a canvas where fresh vegetables, aromatic spices, and time-honored 
+                recipes come together to create extraordinary culinary experiences. Every dish tells 
+                a story of heritage, health, and heartfelt hospitality.
+            </p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section menu-preview" id="menu">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Our Menu</h2>
+            <p class="section-subtitle">A Journey Through Flavors</p>
+        </div>
+        
+        <!-- Street Food & Starters -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🌮</span>
+                <h3 class="category-title">Street Food & Starters</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Masala Pav</div>
+                    <div class="dish-description">Chopped pav cooked in delicious masala and veggies</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-category">Without Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-category">With Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Peri Peri Mayo Fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Veg Cheese Fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Pav Bhaji</div>
+                    <div class="dish-description">Choose from: Delicious, Amul, or Cheese varieties</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Delicious</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Amul</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Cheese</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Delicious</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Amul</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Cheese</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Delicious</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Amul</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Cheese</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Pav Bhaji Fondue <span class="special-badge">SPECIAL</span></div>
+                    <div class="dish-description">Sweet & Spicy Cheesy Bhaji served with Crispy Pav Cubes & Salad</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹260</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Street Food & Starters -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🌮</span>
+                <h3 class="category-title">Street Food & Starters</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Masala Pav</div>
+                    <div class="dish-description">Chopped pav cooked in delicious masala and veggies</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-category">Without Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-category">With Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Peri Peri Mayo Fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Veg Cheese Fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Pav Bhaji</div>
+                    <div class="dish-description">Choose from: Delicious, Amul, or Cheese varieties</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Delicious</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Amul</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Cheese</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Delicious</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Amul</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Cheese</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Delicious</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Amul</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Cheese</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Green Pav Bhaji</div>
+                    <div class="dish-description">Choose from: Delicious, Amul, or Cheese varieties</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Delicious</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Amul</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Cheese</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Black Pav Bhaji</div>
+                    <div class="dish-description">Choose from: Delicious, Amul, or Cheese varieties</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Delicious</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Amul</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Cheese</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Pav Bhaji Fondue <span class="special-badge">SPECIAL</span></div>
+                    <div class="dish-description">Sweet & Spicy Cheesy Bhaji served with Crispy Pav Cubes & Salad</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹260</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Sandwiches -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🥪</span>
+                <h3 class="category-title">Sandwiches</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Toast Sandwich</div>
+                    <div class="dish-description">Choose: Vegetable Toast, Masala Toast, or Chilly Toast</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-category">Without Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-category">With Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Grilled Sandwich</div>
+                    <div class="dish-description">Choose: Vegetable Grilled, Masala Grilled, or Chilly Grilled</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-category">Without Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹130</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-category">With Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Veg Sandwich</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-category">Without Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹50</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹50</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹50</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-category">With Cheese:</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹70</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹70</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN</span>
+                            <span class="price-value">₹70</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Tandoori Sandwich</div>
+                    <div class="dish-description">Fried potato sticks cooked in Chinese chilly sauces and veggies</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Cheese Blast Sandwich</div>
+                    <div class="dish-description">Cheese loaded sandwich stuffed with cheese and veggies</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Junglee Sandwich</div>
+                    <div class="dish-description">Exotic veggies, schezwan, Italian sauces & cheese</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN (8 pieces breads, no fries)</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Melting Sandwich</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN (Without Onion, Garlic, tandoori sauce, garlic chutney)</span>
+                            <span class="price-value">₹300</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Chinese Specialties -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🍜</span>
+                <h3 class="category-title">Chinese Specialties</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Chinese Bhel</div>
+                    <div class="dish-description">Hot, crispy, sweet & spicy bhel cooked with fried noodles, veggies and schezwan sauces</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Add Manchurian: +₹40</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Manchurian Crispy <span class="special-badge">HOT SELLING</span></div>
+                    <div class="dish-description">Hot & crispy manchurian cooked in sweet & spicy red sauce gravy with sesame seeds sprinkled on top</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Dragon Paneer <span class="special-badge">HOT SELLING</span></div>
+                    <div class="dish-description">Fried paneer cooked in red sauce gravy, medium spicy topped with cashew</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹260</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹260</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹260</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Potato Chilly Dry</div>
+                    <div class="dish-description">Fried potato sticks cooked in Chinese chilly sauces and veggies</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Veg Paisath (65)</div>
+                    <div class="dish-description">Manchurian cooked in Indian style with Chinese sauces</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Stir Fry Veggies</div>
+                    <div class="dish-description">Healthy dish - exotic veggies boiled and cooked with a bit of salt with mild and blended taste</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN (8 pieces of breads, no fries)</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Manchurian Dry</div>
+                    <div class="dish-description">Soft & crispy paneer cooked in sweet & spicy red sauce</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Shunya Special Fries</div>
+                    <div class="dish-description">Pizza base, mayo chipotle, cheese, liquid cheese topped on crispy fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Corn Cheese Momo</div>
+                    <div class="dish-description">Momos stuffed with corn topped with cheese, served with sauce</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Manchurian Sizzler</div>
+                    <div class="dish-description">Manchurian gravy, manchurian dry, exotic veggies, rice + noodles, fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹520</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Cheese Chilli Garlic Bread</div>
+                    <div class="dish-description">6 pieces of bread topped with paneer and veggies sautéed in chilli sauces</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Dragon Manchurian <span class="special-badge">STARTER</span></div>
+                    <div class="dish-description">Manchurian cooked in red sauce gravy, medium spicy topped with cashew</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹270</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹270</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN (Without Onion, Garlic, Ginger, Carrot, Spring Onion etc)</span>
+                            <span class="price-value">₹270</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rice & Noodles -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🍚</span>
+                <h3 class="category-title">Rice & Noodles</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Fried Rice</div>
+                    <div class="dish-description">Premium quality Chinese rice cooked with fresh veggies served with schezwan chutney & fried noodles</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹100</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹600</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹700</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹100</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹600</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Schezwan Rice</div>
+                    <div class="dish-description">Premium quality Chinese rice cooked in schezwan sauce and veggies</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹700</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹800</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹700</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Tripple Schezwan Combo</div>
+                    <div class="dish-description">Rice + noodles + gravy with manchurian balls cooked in red sauce gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1100</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹270</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Hakka Noodles</div>
+                    <div class="dish-description">Noodles cooked with fresh veggies served with schezwan chutney & fried noodles</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹100</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹600</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹700</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹100</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹600</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Schezwan Noodles</div>
+                    <div class="dish-description">Chinese noodles cooked in schezwan sauce and veggies</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹700</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹800</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹700</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Wah Wah Combo</div>
+                    <div class="dish-description">Korean spicy and tasty rice or noodles served with paneer chilly gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Coktale Rice</div>
+                    <div class="dish-description">Three flavoured rice (fried, schezwan & coriander rice) topped with paneer manchurian dry and gravy separate</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Chopper Rice</div>
+                    <div class="dish-description">Schezwan rice topped with chopped manchurian in red sauce gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹260</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1100</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹260</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Combination Schezwan</div>
+                    <div class="dish-description">Rice + noodles cooked in schezwan sauce and veggies</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹800</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹900</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹800</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Manchurian Bowl</div>
+                    <div class="dish-description">Rice + noodles + manchurian semi dry gravy combo</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹320</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹320</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Coktale Noodles</div>
+                    <div class="dish-description">Three flavoured noodles (Hakka, Schezwan & Coriander noodle) topped with paneer manchurian dry and gravy separate</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Pot Rice</div>
+                    <div class="dish-description">Asian style cooking on exotic veggies & rice</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹380</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹380</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹380</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1500</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Tripple Combination</div>
+                    <div class="dish-description">Rice + noodles + gravy cooked in red sauce schezwan gravy with paneer added in rice and gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Bowls & Combination Dishes -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🥣</span>
+                <h3 class="category-title">Bowls & Combinations</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Dragon Bowl</div>
+                    <div class="dish-description">Rice + noodles + semi dry gravy of manchurian cooked in dragon sauce topped with cashew</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹380</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Chilly Bowl</div>
+                    <div class="dish-description">Rice + noodles + semi dry paneer chilly gravy cooked in brown sauce gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹380</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹380</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tawa Pulao -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🍛</span>
+                <h3 class="category-title">Tawa Pulao</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Tawa Pulao</div>
+                    <div class="dish-description">Choose from: Butter, Paneer, or Cheese varieties</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Butter</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Paneer</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Cheese</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Butter</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Paneer</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Cheese</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Butter</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Paneer</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Cheese</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Green Tawa Pulao</div>
+                    <div class="dish-description">Choose from: Butter, Paneer, or Cheese varieties</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Butter</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Paneer</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Cheese</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Butter</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Paneer</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Cheese</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Butter</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Paneer</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Cheese</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Schezwan Tawa Pulao</div>
+                    <div class="dish-description">Choose from: Butter, Paneer, or Cheese varieties</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Butter</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Paneer</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Cheese</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Butter</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Paneer</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Cheese</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Butter</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Paneer</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Cheese</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pizzas -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🍕</span>
+                <h3 class="category-title">Pizzas</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Cheese Burst Pizza</div>
+                    <div class="dish-description">Two layered pizza loaded with delicious sauces</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹270</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Tikka Spicy Pizza</div>
+                    <div class="dish-description">Paneer cubes with tomato & capsicum with tangy sauce</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Exotic Veg Cheese Pizza</div>
+                    <div class="dish-description">Exotic veggies loaded with exotic veggies & sauces</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹280</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Upper Dupper Pizza</div>
+                    <div class="dish-description">Pizza layered with capsicum & tomato</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹270</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹350</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Cheese Pizza</div>
+                    <div class="dish-description">Loaded with paneer and cheese</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Margherita Pizza</div>
+                    <div class="dish-description">Classic Italian pizza</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Corn Cheese Pizza</div>
+                    <div class="dish-description">Loaded with corn and cheese</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Peri Peri Cheese Pizza</div>
+                    <div class="dish-description">Veggies tossed with chilli & peri peri topped with cheese</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹190</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹270</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Veg Cheese Pizza</div>
+                    <div class="dish-description">Veggies topped with cheese</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Chinese Pizza</div>
+                    <div class="dish-description">Veggies with chilli & schezwan topped with cheese</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹300</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Chilli Pizza</div>
+                    <div class="dish-description">Paneer with chilli sauce & veggies topped with cheese</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>6 inch</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>9 inch</span>
+                            <span class="price-value">₹320</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bread & Appetizers -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🥖</span>
+                <h3 class="category-title">Breads & Appetizers</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Garlic Bread</div>
+                    <div class="dish-description">Choose from: Plain, Paneer, or Cheese varieties</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Plain</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Paneer</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Cheese</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Plain</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Paneer</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Cheese</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Plain</span>
+                            <span class="price-value">₹120</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Paneer</span>
+                            <span class="price-value">₹220</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Cheese</span>
+                            <span class="price-value">₹160</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Bruchetta</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹240</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Cheese Chilli Garlic Bread</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹180</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pasta -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🍝</span>
+                <h3 class="category-title">Pasta</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Pink Sauce Pasta</div>
+                    <div class="dish-description">Sweet & spicy pasta served with 2 pieces of bruchetta breads</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Red Sauce Pasta</div>
+                    <div class="dish-description">Tangy & spicy pasta served with 2 pieces of bruchetta breads</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹230</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹230</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹230</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1300</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">White Sauce Pasta</div>
+                    <div class="dish-description">Cheesy & sweet pasta served with 2 pieces of bruchetta breads</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Full</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE VEG - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Full</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Half</span>
+                            <span class="price-value">₹170</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Full</span>
+                            <span class="price-value">₹250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN - Bucket</span>
+                            <span class="price-value">₹1400</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sizzlers & Meals -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🔥</span>
+                <h3 class="category-title">Sizzlers & Meals</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Exotic Sizzler or Meal</div>
+                    <div class="dish-description">Exotic rice + exotic veggies + red sauce gravy + aloo tikki + fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN (Extra rice, no fries)</span>
+                            <span class="price-value">₹500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹500</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paprika Sizzler or Meal</div>
+                    <div class="dish-description">Mexican rice + paprika gravy + exotic veggies + tawa cooked paneer + fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹530</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN (Extra rice, no fries)</span>
+                            <span class="price-value">₹530</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹530</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Chilly Sizzler or Meal</div>
+                    <div class="dish-description">Paneer rice + noodles + exotic veggies + paneer chilly gravy + paneer chilly dry + fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹580</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN (Extra rice, no fries)</span>
+                            <span class="price-value">₹580</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹580</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Burgers -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">🍔</span>
+                <h3 class="category-title">Burgers</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Peri Peri Cheese Burger</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span>PURE VEG</span>
+                            <span class="price-value">₹140</span>
+                        </div>
+                        <div class="price-row">
+                            <span>HALF JAIN (Without Onion & Garlic)</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                        <div class="price-row">
+                            <span>PURE JAIN (Without Onion, Garlic, Papzika)</span>
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Menu Items -->
+        <div class="menu-category fade-in">
+            <div class="category-header">
+                <span class="category-icon">⭐</span>
+                <h3 class="category-title">Additional Items</h3>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <div class="dish-name">Bread Butter</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹30</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Chutney / Sada</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹35</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Aloo Slice</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹40</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Aloo Cheese Slice</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹70</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Schezwan Momos</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹130</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Shunya Special Momos</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹250</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Non Jain Cheese Burger</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹140</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Chipotle Burger</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹170</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Mayonnaise Fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Schezwan Fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹160</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Original Fries</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹120</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Tomato Soup</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Manchow Soup</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹130</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Hot & Sour Soup</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹130</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Clear Soup</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹150</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Manchurian Soup</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹130</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Schezwan Manchurian Dry</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹180</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Manchurian Dry</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer 65</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹250</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">MIX VEG Manchurian Gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹160</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Manchurian Gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Chilly Gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹250</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Exotic Rice Or Noodles</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹180</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Combination Rice + Noodles</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹160</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Manchurian Rice Or Noodles</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹180</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Schezwan Manchu Rice Or Noodles</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹180</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Manchurian Rice Or Noodles + Gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹240</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Sch. Manchu Rice Or Noodles + Gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹250</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Rice Or Noodles</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹220</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Exotic Garlic Rice Or Noodles + Gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹280</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Exotic Rice Or Noodles with Gravy</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹260</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">Paneer Manchurian Bowl</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹330</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-item">
+                    <div class="dish-name">JUNAKI Rice Or Noodles</div>
+                    <div class="dish-price-table">
+                        <div class="price-row">
+                            <span class="price-value">₹190</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="section specialties">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Why Choose Shunya</h2>
+        </div>
+        <div class="specialties-grid">
+            <div class="specialty-item fade-in">
+                <div style="font-size: 3rem;">🌱</div>
+                <h4>100% Vegetarian</h4>
+                <p>Pure vegetarian cuisine with no compromise on taste or quality</p>
+            </div>
+            <div class="specialty-item fade-in">
+                <div style="font-size: 3rem;">👨‍🍳</div>
+                <h4>Expert Chefs</h4>
+                <p>Culinary masters with decades of combined experience</p>
+            </div>
+            <div class="specialty-item fade-in">
+                <div style="font-size: 3rem;">🥬</div>
+                <h4>Fresh Ingredients</h4>
+                <p>Sourced daily from local farms for maximum freshness</p>
+            </div>
+            <div class="specialty-item fade-in">
+                <div style="font-size: 3rem;">💚</div>
+                <h4>Healthy Options</h4>
+                <p>Nutritious meals prepared with care and consciousness</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Visit Us</h2>
+            <p class="section-subtitle">We're Waiting to Serve You</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item fade-in">
+                    <h3>📍 Location</h3>
+                    <p>Shop No 12 & 13, Achalgiri Building,<br>
+                    150rd, Bhayandar, Padmavati Nagar,<br>
+                    Bhayandar West, Mumbai,<br>
+                    Mira Bhayandar, Maharashtra 401101<br><br>
+                    <a href="https://maps.app.goo.gl/RNu6jFCoQ9PbxUtz6" target="_blank">📌 View on Google Maps</a></p>
+                </div>
+                <div class="contact-item fade-in">
+                    <h3>🕒 Hours</h3>
+                    <p>Open Daily<br>11:00 AM - 12:00 AM</p>
+                </div>
+                <div class="contact-item fade-in">
+                    <h3>📞 Contact</h3>
+                    <p>Call for reservations<br>
+                    <a href="tel:+918097014293">+91 8097014293</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Shunya - The Veg Delight. All rights reserved. | Crafted with 💚 for vegetarian food lovers</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+    </script>
+</body>
+</html>
